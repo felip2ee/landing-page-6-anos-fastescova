@@ -1180,6 +1180,27 @@ summary {
   letter-spacing: 0.16em;
 }
 
+.footer__credits {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 0.57rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+}
+
+.footer__credits a {
+  color: inherit;
+  font-weight: inherit;
+  transition: color 180ms ease;
+}
+
+.footer__credits a:hover {
+  color: var(--yellow);
+}
+
 @media (min-width: 48rem) {
   .section-pad {
     padding: 8rem 4rem;
@@ -1315,6 +1336,10 @@ summary {
   }
 
   .footer small {
+    grid-column: 1 / -1;
+  }
+
+  .footer__credits {
     grid-column: 1 / -1;
   }
 }

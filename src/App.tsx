@@ -445,6 +445,18 @@ function App() {
           {campaign.instagram}<ArrowUpRight size={16} aria-hidden="true" />
         </a>
         <small>EXPERIÊNCIA COMEMORATIVA · 6 ANOS</small>
+        <div className="footer__credits">
+          <span>BY:</span>
+          <a
+            href="https://www.instagram.com/novadigital.br/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Abrir Instagram da Nova Digital"
+          >
+            @novadigital.br
+          </a>
+          <span>· TODOS OS DIREITOS RESERVADOS.</span>
+        </div>
       </footer>
     </div>
   );

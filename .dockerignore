@@ -1,0 +1,14 @@
+.git
+.github
+dist
+node_modules
+npm-debug.log*
+*.log
+.env
+.env.*
+!.env.example
+brand-*-check*.png
+spacing-check.png
+file_1 (1).png
+WhatsApp Image 2026-05-30 at 22.33.59.png
+

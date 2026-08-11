@@ -1,0 +1,43 @@
+services:
+  site:
+    image: ghcr.io/felip2ee/landing-page-6-anos-fastescova:${IMAGE_TAG:-latest}
+    networks:
+      - {sua network}
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+        order: start-first
+        failure_action: rollback
+      rollback_config:
+        parallelism: 1
+        order: stop-first
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 60s
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 128M
+        reservations:
+          cpus: "0.05"
+          memory: 32M
+      labels:
+        - "traefik.enable=true"
+        - "traefik.docker.network={sua network}"
+        - "traefik.http.routers.fastescova6anos.rule=Host(`${DOMAIN:?Defina DOMAIN antes do deploy}`)"
+        - "traefik.http.routers.fastescova6anos.entrypoints=websecure"
+        - "traefik.http.routers.fastescova6anos.tls=true"
+        - "traefik.http.routers.fastescova6anos.tls.certresolver={seu cetresolver}"
+        - "traefik.http.routers.fastescova6anos.service=fastescova6anos"
+        - "traefik.http.services.fastescova6anos.loadbalancer.server.port=80"
+
+networks:
+  NovaNet:
+    external: true
+    name: SuaNetwork
+
